@@ -1,12 +1,11 @@
 <?php
 
+require_once "Product.php";
+
 $db = new \PDO('mysql:host=localhost;dbname=curso_avancando_com_oo', 'root', '');
 
-$query = 'SELECT * FROM products';
+$product = new Product($db);
 
-$stmt = $db->prepare($query);
-$stmt->execute();
-
-$list = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+$list = $product->list();
 
 print_r($list);
