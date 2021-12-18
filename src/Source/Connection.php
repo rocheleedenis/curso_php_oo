@@ -1,5 +1,7 @@
 <?php
 
+namespace Source;
+
 class Connection implements ConnectionInterface
 {
     private $dsn;

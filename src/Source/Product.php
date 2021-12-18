@@ -1,5 +1,7 @@
 <?php
 
+namespace Source;
+
 class Product
 {
     private $db;
