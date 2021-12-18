@@ -11,12 +11,30 @@ class ComposerStaticInitac8127668fc766cccef8e7dd7c016e1b
         array (
             'Source\\' => 7,
         ),
+        'P' => 
+        array (
+            'Psr\\Container\\' => 14,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Source\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
         ),
     );
 
@@ -29,6 +47,7 @@ class ComposerStaticInitac8127668fc766cccef8e7dd7c016e1b
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitac8127668fc766cccef8e7dd7c016e1b::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitac8127668fc766cccef8e7dd7c016e1b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitac8127668fc766cccef8e7dd7c016e1b::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitac8127668fc766cccef8e7dd7c016e1b::$classMap;
 
         }, null, ClassLoader::class);
