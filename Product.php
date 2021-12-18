@@ -4,9 +4,9 @@ class Product
 {
     private $db;
 
-    public function __construct($db)
+    public function __construct(ConnectionInterface $db)
     {
-        $this->db = $db;
+        $this->db = $db->connect();
     }
 
     public function list()
