@@ -4,6 +4,6 @@ require_once "../vendor/autoload.php";
 require_once "config.php";
 require_once "service.php";
 
-$list = $container['product']->list();
+$list = $container['ServiceProduct']->list();
 
-print_r($list);
+require_once "list.product.php";

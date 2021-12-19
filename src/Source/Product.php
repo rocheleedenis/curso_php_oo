@@ -2,22 +2,45 @@
 
 namespace Source;
 
-class Product
+class Product implements ProductInterface
 {
-    private $db;
+    private $id;
+    private $name;
+    private $description;
 
-    public function __construct(ConnectionInterface $db)
+    public function getId()
     {
-        $this->db = $db->connect();
+        return $this->id;
     }
 
-    public function list()
+    public function setId($id)
     {
-        $query = 'SELECT * FROM products';
+        $this->id = $id;
 
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
+        return $this;
+    }
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }
