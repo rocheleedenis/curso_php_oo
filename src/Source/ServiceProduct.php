@@ -10,6 +10,11 @@ class ServiceProduct implements ServiceProductInterface
     public function __construct(ConnectionInterface $db, ProductInterface $product)
     {
         $this->db = $db->connect();
+
+        if (!is_object($this->db)) {
+            exit($this->db);
+        }
+
         $this->product = $product;
     }
 

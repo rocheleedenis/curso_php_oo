@@ -17,6 +17,10 @@ class Connection implements ConnectionInterface
 
     public function connect()
     {
-        return new \PDO($this->dsn, $this->user, $this->pass);
+        try {
+            return new \PDO($this->dsn, $this->user, $this->pass);
+        } catch (\PDOException $e) {
+            return "Error! <br>Message: " . $e->getMessage() . '<br>Code: ' . $e->getCode();
+        }
     }
 }
