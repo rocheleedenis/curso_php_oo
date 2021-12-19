@@ -18,6 +18,17 @@ class ServiceProduct implements ServiceProductInterface
         $this->product = $product;
     }
 
+    public function find(int $id)
+    {
+        $query = 'SELECT * FROM products where id = :id ';
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function list()
     {
         $query = 'SELECT * FROM products';
