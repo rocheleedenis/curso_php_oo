@@ -53,7 +53,14 @@ class ServiceProduct implements ServiceProductInterface
 
     public function update()
     {
+        $query = 'UPDATE `products` SET `name` = ?, `description` = ? WHERE `id` = ?';
 
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(1, $this->product->getName());
+        $stmt->bindValue(2, $this->product->getDescription());
+        $stmt->bindValue(3, $this->product->getId());
+
+        return $stmt->execute();
     }
 
     public function delete()

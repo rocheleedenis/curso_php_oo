@@ -4,11 +4,15 @@ require_once "../vendor/autoload.php";
 require_once "config.php";
 require_once "service.php";
 
-$container['product']
-        ->setName('Pithon Course')
-        ->setDescription('Build a complete website');
+$list = $container['ServiceProduct']->list();
+require_once "list.product.php";
 
-print_r($container['ServiceProduct']->save());
+$container['product']
+        ->setId(1)
+        ->setName('PHP Course Test Update')
+        ->setDescription('PHP course at the School Of Net');
+
+print_r($container['ServiceProduct']->update());
 
 $list = $container['ServiceProduct']->list();
 require_once "list.product.php";
