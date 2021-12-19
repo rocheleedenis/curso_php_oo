@@ -1,7 +1,12 @@
 <?php
 
 $container['connection'] = function ($container) {
-    return new \Source\Connection($container['dsn'], $container['user'], $container['pass']);
+    return new \Source\Connection(
+        $container['host'],
+        $container['dbname'],
+        $container['user'],
+        $container['pass']
+    );
 };
 
 $container['product'] = function () {

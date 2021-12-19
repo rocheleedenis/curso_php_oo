@@ -31,7 +31,7 @@ class ServiceProduct implements ServiceProductInterface
 
     public function list()
     {
-        $query = 'SELECT * FROM products';
+        $query = 'SELECT * FROM `products`';
 
         $stmt = $this->db->prepare($query);
         $stmt->execute();
@@ -41,7 +41,14 @@ class ServiceProduct implements ServiceProductInterface
 
     public function save()
     {
+        $query = 'INSERT INTO `products` (`name`, `description`) VALUES (:name, :description)';
 
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':name', $this->product->getName());
+        $stmt->bindValue(':description', $this->product->getDescription());
+        $stmt->execute();
+
+        return $this->db->lastInsertId();
     }
 
     public function update()
