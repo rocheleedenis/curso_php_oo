@@ -8,5 +8,5 @@ interface ServiceProductInterface
     public function list();
     public function save();
     public function update();
-    public function delete();
+    public function delete(int $id);
 }

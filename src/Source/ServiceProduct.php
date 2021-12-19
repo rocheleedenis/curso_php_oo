@@ -63,8 +63,13 @@ class ServiceProduct implements ServiceProductInterface
         return $stmt->execute();
     }
 
-    public function delete()
+    public function delete(int $id)
     {
+        $query = 'DELETE FROM `products` WHERE `id` = ?';
 
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(1, $id);
+
+        return $stmt->execute();
     }
 }
